@@ -24,12 +24,12 @@ public class MainViewController implements Initializable{
 	
 	@FXML
 	public void onMenuItemSellerAction() {
-		System.out.println("seller");
+		loadView("/gui/Seller.fxml");
 	}
 	
 	@FXML
 	public void onMenuItemDepartmentAction() {
-		Alerts.showAlert("Department", AlertType.INFORMATION);
+		loadView("/gui/DepartmentList.fxml");
 	}
 	
 	@FXML
