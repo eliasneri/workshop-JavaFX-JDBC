@@ -11,9 +11,12 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import model.entities.Department;
 
 public class DepartmentFormController implements Initializable {
 
+	private Department entity;
+	
 	@FXML
 	private Label lblErrorId;
 	
@@ -31,6 +34,10 @@ public class DepartmentFormController implements Initializable {
 	@FXML
 	private TextField txtName;
 	
+	public void setDepartment(Department entity) {
+		this.entity = entity;
+		
+	}
 	
 	@FXML
 	public void onBtSaveAction() {
@@ -44,6 +51,7 @@ public class DepartmentFormController implements Initializable {
 		txtName.clear();
 		txtName.requestFocus();
 	}
+	
 	@Override
 	public void initialize(URL ur, ResourceBundle ar) {
 		txtName.clear();
@@ -51,6 +59,15 @@ public class DepartmentFormController implements Initializable {
 		Constraints.setTextFieldMaxLength(txtName, 15);
 		txtName.requestFocus();
 		
+	}
+	
+	public void updateFormData() {
+		if (entity == null ) {
+			throw new IllegalStateException("Sem Dados");
+		} 
+		txtId.setText(String.valueOf(entity.getId()));
+		txtName.setText(entity.getName());
+	
 	}
 
 }
