@@ -13,5 +13,17 @@ public class DepartmentService {
 	public List<Department> findAll() {
 		return departmentDao.findAll();
 	}
+	
+	public void saveOrUpdate(Department obj) {
+		
+		// se o id do departamento for igual nulo, significa que será um novo registro 
+		if (obj.getId() == null) {
+			departmentDao.insert(obj);
+		} 
+		else
+		{
+			departmentDao.update(obj);
+		}
+	}
 
 }

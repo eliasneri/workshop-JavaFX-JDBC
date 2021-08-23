@@ -35,8 +35,7 @@ public class DepartmentFormController implements Initializable {
 	private TextField txtName;
 	
 	public void setDepartment(Department entity) {
-		this.entity = entity;
-		
+		this.entity = entity;	
 	}
 	
 	@FXML
@@ -59,6 +58,8 @@ public class DepartmentFormController implements Initializable {
 		Constraints.setTextFieldMaxLength(txtName, 15);
 		txtName.requestFocus();
 		
+		
+		
 	}
 	
 	public void updateFormData() {
@@ -66,7 +67,7 @@ public class DepartmentFormController implements Initializable {
 			throw new IllegalStateException("Sem Dados");
 		} 
 		txtId.setText(String.valueOf(entity.getId()));
-		txtName.setText(entity.getName());
+		txtName.setText(entity.getName().toUpperCase());
 	
 	}
 
